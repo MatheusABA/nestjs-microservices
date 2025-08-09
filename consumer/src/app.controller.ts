@@ -1,12 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { AppService } from './app.service';
+import { EventPattern, Payload } from '@nestjs/microservices';
+import { CreateOrderDTO } from './dto/create-order.dto';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @EventPattern('ORDER_PLACED')
+  handleOrderPlaced(@Payload() order: CreateOrderDTO) {
+    return this.appService.handleOrderPlaced(order);
   }
 }
