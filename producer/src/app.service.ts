@@ -5,6 +5,6 @@ export class AppService {
   constructor() {}
 
   checkHealth() {
-    return 'Endpoint health is OK';
+    return 'API is healthy';
   }
 }

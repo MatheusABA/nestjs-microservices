@@ -1,1 +1,17 @@
 GET http://localhost:3000/health
+
+
+
+###
+GET http://localhost:3000/healthy
+
+
+###
+POST http://localhost:3000/orders/create-order HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "matheus@gmail.com",
+  "productId": "string",
+  "quantity": 0
+}
